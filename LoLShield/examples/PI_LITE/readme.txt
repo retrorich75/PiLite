@@ -32,3 +32,4 @@ $$$ALL,ON - set all pixels on
 $$$ALL,OFF - set all pixels off
 $$$SCROLLval - Scroll val columns left (val is positive) or right (val is negative)
 $$$Tc,r,char - display char at c,r
+$$$Qval Set screen brightness (1 is dim, 127 is bright)

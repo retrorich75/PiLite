@@ -1,13 +1,14 @@
 /*
   Pi-Lite
  Copyright (c) 2013 Ciseco Ltd.
- Code written by Ciseco Ltd. April 4th 2013
+ Code written by Ciseco Ltd. April 4th 2013, modified by Ian Atkin, January 1st, 2016.
  	2013-04-04 - V0.2 Initial beta release for internal testing
  	2013-05-02 - V0.3 Added new commands - scroll and display character
 				  Added brief flash of a cross at startup
 	2013-05-03 - V1   updated startup and added logo
 				 V1.1 Corrected scroll command
 	2013-05-07	 V1.2 Fixed the $$$P command - had the wrong limits for column and row.
+  2016-01-01 - V1.3 Added brightness control command $$$Q (value 1 (dim) to 127 (bright)
 
  Please see Readme.txt for details on the code functionality
  
@@ -21,6 +22,7 @@
  	Created by Alex Wenger, December 30, 2009.
  	Modified by Matt Mets, May 28, 2010.
  	Modified by Ciseco Ltd. April 4th 2013
+  Modified by Ian Atkin, January 1st, 2016.
  
  */
 
@@ -56,6 +58,7 @@ int scrollDelay = 80;
 uint32_t timer1;
 uint8_t init_stage=0;
 uint8_t init_pos;
+uint8_t brightness;
 
 uint16_t logo[14] = {0b111100000,0b101011111,0b111000001,
 					 0b000000001,0b101100000,0b000011111,
@@ -482,6 +485,13 @@ void processCommandChar(char c)
       case 'G':	// Test code - switch Digital 14 on
         pinMode(14,OUTPUT);
         digitalWrite(14,HIGH);
+        break;
+      case 'Q':  // Qval - Brightness - set overall screen brightness to val (1 (dim) to 127 (bright))
+        brightness = atoi(commandbuffer);
+        if (brightness > 0 && brightness <= 127)
+        {
+          LedSign::SetBrightness(brightness);
+        }
         break;
       default:	// not a valid command
         break;
