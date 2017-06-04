@@ -7,7 +7,7 @@ import serial
 
 class PiLiteBoard(object):
     def __init__(self):
-        self.ser = serial.Serial("/dev/ttyAMA0", baudrate=9600, timeout=3.0)
+        self.ser = serial.Serial("/dev/serial0", baudrate=9600, timeout=3.0)
         self.ser.write("$$$SPEED50\r")
 
     def write(self, text):
