@@ -6,10 +6,7 @@ Install requirements:
 PySerial, this can be installed with
 $ sudo apt-get install python-serial
 
-
-
-
-The first four can be ran from the the command line with out starting the GUI
+The first four programmes can be ran from the the command line with out starting the GUI
 
 BarScroll.py:
     Uses the bar-graph command $$$B?,? to scroll a wave across the screen
@@ -41,12 +38,12 @@ Pi-LITE Emulator
 
 PiLiteEmulator.py:
     This is a stand alone virtual Pi-LITE created in python using Tkinter
-    It Accpects all the same command as the real thing
+    It accepts all the same command as the real thing
     Just type into the Command Entry Box and try it out
     
 Feed Examples 
 
-The following reuqire a few more modules
+The following require a few more modules
 
 Xively and requests (installing Xively-python will also install requests)
 $ sudo apt-get install python-setuptools
